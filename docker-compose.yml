@@ -1,0 +1,29 @@
+version: '3'
+services:
+  wassim:
+    build:
+      context: .
+      dockerfile: Dockerfile     
+    ports:
+      - "4200:4200"   
+    container_name: wassim
+    restart: always
+    tty: true
+    volumes:
+      - .:/var/app/googlemapscraperpro:rw
+
+
+# --------------------------------------------------------------------------------------------------------------------
+  #
+  # PORTAINER
+  #
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer-googlemapscraperpro
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ./portainer:/data:rw
+    ports:
+      - "8888:9000"
+    
