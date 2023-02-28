@@ -1,0 +1,14 @@
+
+
+<ul *ngIf="todoList$ | async as todoList">
+  <li *ngFor="let todo of todoList">{{ todo.name }}</li>
+</ul>
+
+<div>
+  <button mat-raised-button  color="primary" (click)="createTodo()">Create Todo</button>
+</div>
+
+<div>
+  <button #listTodoButton mat-raised-button  color="primary" (click)="listTodo()">List Todo</button>
+</div>
+

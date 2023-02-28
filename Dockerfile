@@ -11,3 +11,5 @@ RUN npm i -g @nrwl/cli
 RUN npm install -g @ionic/cli native-run cordova-res
 RUN apt install nano -y
 RUN apt install htop -y
+
+RUN echo 'alias serve="cd /var/app/googlemapscraperpro/wassim && ng serve --host=0.0.0.0 --port=4200"' >> /root/.bashrc

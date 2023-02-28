@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {Component, EventEmitter, OnInit} from '@angular/core';
+import {FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {Observable, tap} from "rxjs";
+import {TodoDto} from "../../dtos/todo.dto";
+import {TodoService} from "../../services/todo.service";
+import {validateCredentials, validatePassword} from "../../validators/password.validator";
 
 
 @Component({
@@ -9,15 +13,20 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 export class LoginPage {
 
-  public loginForm: FormGroup;
+  public loginForm = new FormGroup({
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    password: new FormControl('',[
+        Validators.required,
+        validatePassword,
+        validateCredentials,
+    ]),
+  });
 
-  constructor(
-    private formControl: FormControl,
-    private formGroup: FormGroup,
-  ) {
-      this.loginForm = new FormGroup({
-        email: new FormControl(''),
-        password: new FormControl(''),
-      });
+  submitLogin() {
+      console.log( this.loginForm, '$event')
   }
+
 }
