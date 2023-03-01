@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wassim-ad0a2": {
+      "hosting": {
+        "wassim": [
+          "wassim-ad0a2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wassim-ad0a2"
+  }
+}

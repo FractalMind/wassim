@@ -97,6 +97,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "wassim:build:production",
+            "firebaseProject": "wassim-ad0a2",
+            "firebaseHostingSite": "wassim-ad0a2"
+          }
         }
       }
     }

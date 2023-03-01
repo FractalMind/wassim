@@ -1,5 +1,5 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../../environment/environment";
+import {environment} from "../../environments/environment";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
@@ -15,7 +15,7 @@ export class FirebaseClientBase {
 
   public post<payloadType>(urlRoute: string, payload: payloadType, options?: {}): Observable<any> {
     return this.httpClient.post(
-      environment.firebaseConfig.databaseURL + urlRoute,
+      environment.firebase.databaseURL + urlRoute,
       payload,
       {...this.defaultHttpOptions, ...options}
     );
@@ -23,7 +23,7 @@ export class FirebaseClientBase {
 
   public get<returnType>(urlRoute: string, options?: {}): Observable<returnType[]> {
     return this.httpClient.get(
-      environment.firebaseConfig.databaseURL + urlRoute,
+      environment.firebase.databaseURL + urlRoute,
       {...this.defaultHttpOptions, ...options}
     ).pipe(
       map(todoDictionary => {
