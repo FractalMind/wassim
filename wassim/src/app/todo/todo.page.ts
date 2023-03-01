@@ -1,9 +1,9 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {TodoDto} from "../../dtos/todo.dto";
-import {TodoService} from "../../services/todo.service";
-import {BehaviorSubject, Observable} from "rxjs";
-import {startWith, takeLast, tap} from "rxjs/operators";
+import {Component} from '@angular/core';
+import {TodoService} from "./services/todo.service";
+import {lastValueFrom, Observable} from "rxjs";
+import {tap} from "rxjs/operators";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {TodoItemBo} from "./bos/todo-item.bo";
 
 
 @Component({
@@ -12,31 +12,35 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class TodoPage {
 
-  @ViewChild('listTodoButton') listTodoButton: ElementRef | undefined;
+  public todoList$: Observable<TodoItemBo[]> | undefined;
 
-  public todoList = [];
-  public todoList$: Observable<TodoDto[]> | undefined;
-
-  constructor(
-    private todoService: TodoService,
-    private _snackBar: MatSnackBar,
-  ) {
-      this.listTodo();
+  public mytodo = {
+    name: 'pipi',
   }
 
-  createTodo() {
-    this.todoService.post( new TodoDto( {
-      name: 'caca',
-    })).pipe(
-      tap( todoList => { this._snackBar.open('Todo created', undefined, { duration: 2000})}),
-      tap( todoList => { this.listTodo() }),
-    ).subscribe();
+  constructor(private todoService: TodoService,
+              private _snackBar: MatSnackBar) {
+    this.listTodo();
   }
 
-  listTodo() {
-    this.todoList$ = this.todoService.list().pipe(
-      tap( todoList => { this._snackBar.open('Todos loaded', undefined, { duration: 2000})}),
-    );
+  public async createTodo() {
+    try {
+      //lastValueFrom() triggers the request
+      await lastValueFrom(this.todoService.createTodo(this.mytodo));
+      this._snackBar.open('Todo created', undefined, {duration: 2000})
+    } catch (error) {
+      this._snackBar.open('Todo Error', undefined, {duration: 2000})
+    }
+  }
+
+  public listTodo() {
+    this.todoList$ = this.todoService
+      .getTodoList()
+      .pipe(
+        tap(todoList => {
+          this._snackBar.open('Todos loaded', undefined, {duration: 2000})
+        }),
+      );
   }
 
 }

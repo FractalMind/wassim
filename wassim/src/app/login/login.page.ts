@@ -1,8 +1,5 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
-import {FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
-import {Observable, tap} from "rxjs";
-import {TodoDto} from "../../dtos/todo.dto";
-import {TodoService} from "../../services/todo.service";
+import {Component} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {validateCredentials, validatePassword} from "../../validators/password.validator";
 
 
@@ -18,15 +15,15 @@ export class LoginPage {
       Validators.required,
       Validators.email
     ]),
-    password: new FormControl('',[
-        Validators.required,
-        validatePassword,
-        validateCredentials,
+    password: new FormControl('', [
+      Validators.required,
+      validatePassword,
+      validateCredentials,
     ]),
   });
 
   submitLogin() {
-      console.log( this.loginForm, '$event')
+    console.log(this.loginForm, '$event')
   }
 
 }
