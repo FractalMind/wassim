@@ -1,12 +1,14 @@
-<h1>Login</h1>
-
-<form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input  type="email"
-                matInput
-                formControlName="email"
-                placeholder="Ex. pat@example.com"
+<mat-card>
+  <mat-card-content>
+    <h1>{{ 'Login' | translate}}</h1>
+    <h3>{{ 'Organize your life today, and it\'s free!' | translate}}</h3>
+    <form (ngSubmit)="submitLogin()" [formGroup]="loginForm">
+      <mat-form-field>
+        <mat-label>{{ 'Email' | translate}}</mat-label>
+        <input formControlName="email"
+               matInput
+               placeholder="Ex. pat@example.com"
+               type="email"
         >
         <mat-error *ngIf="loginForm.get('email')?.getError('required')">
           An email is required
@@ -14,28 +16,57 @@
         <mat-error *ngIf="loginForm.get('email')?.getError('email')">
           Email formot not valid. Ex: test@test.com
         </mat-error>
-    </mat-form-field>
+        <mat-error *ngIf="loginForm.get('email')?.getError('auth/invalid-email') ||
+                      loginForm.get('email')?.getError('auth/wrong-password')"
+        >
+          Invalid Email or password
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.getError('auth/user-disabled')"
+        >
+          The user corresponding to the given email has been disabled
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.getError('auth/user-not-found')"
+        >
+          There is no user corresponding to the given email
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input  type="password"
-              matInput
-              formControlName="password"
-      >
-      <mat-error *ngIf="loginForm.get('password')?.getError('required')">
+      <mat-form-field>
+        <mat-label>{{ 'Password' | translate}}</mat-label>
+        <input formControlName="password"
+               matInput
+               type="password"
+        >
+        <mat-error *ngIf="loginForm.get('password')?.getError('required')">
           A password is required
-      </mat-error>
-      <mat-error *ngIf="loginForm.get('password')?.getError('badCaca')">
-        Bad Caca password
-      </mat-error>
-      <mat-error *ngIf="loginForm.get('password')?.getError('serverBadPassword')">
-        Bad server password
-      </mat-error>
-    </mat-form-field>
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password')?.getError('badCaca')">
+          Bad Caca password
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password')?.getError('serverBadPassword')">
+          Bad server password
+        </mat-error>
+      </mat-form-field>
 
-    <div>
-      <button type="submit" mat-raised-button  color="primary">Login</button>
-    </div>
-</form>
+      <div>
+        <button
+          color="secondary"
+          mat-raised-button
+          routerLink="/create-user"
+        >
+          {{ 'Register' | translate}}
+        </button>
+        <button
+          color="primary"
+          mat-raised-button
+          type="submit"
+        >
+          {{ 'Login' | translate}}
+        </button>
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>
 
 

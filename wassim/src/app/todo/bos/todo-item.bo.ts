@@ -1,11 +1,14 @@
-import {TodoItemModel} from "../../../clients/todo/models/todo-item.model";
+import {TodoInterface} from "../interfaces/todo.interface";
+import * as _ from "lodash";
 
-export class TodoItemBo {
-  public id: string;
-  public name: string;
+export class TodoItemBo implements TodoInterface {
+  public id!: string;
+  public name!: string;
+  public isChecked = false;
+  public isEditable = false;
+  public isMouseOver = false;
 
-  constructor(todoItemModel: TodoItemModel) {
-    this.id = todoItemModel.id;
-    this.name = todoItemModel.name;
+  constructor(todoItemModel: any) {
+    _.assign(this, todoItemModel);
   }
 }

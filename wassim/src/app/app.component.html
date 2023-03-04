@@ -1,8 +1,82 @@
-<h1>Wassim TODO List</h1>
+<mat-toolbar *ngFor="let user of [user$ | async]">
+  <div id="resetToolbarRow">
+    <img alt="logo"
+         src="/assets/images/logo.png"
+    >
+    <div id="buttons">
+      <button *ngIf="user!=null" aria-label="User menu"
+              class="example-icon favorite-icon"
+              mat-button
+      >
+        <mat-icon>person</mat-icon>
+        {{user.email}}
+      </button>
+      <button [matMenuTriggerFor]="languageMenu"
+              aria-label="Share button"
+              class="example-icon"
+              mat-icon-button
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #languageMenu="matMenu">
+        <button (click)="changeLanguage('en')"
+                mat-menu-item
+        >
+          English
+        </button>
+        <button (click)="changeLanguage('fr')"
+                mat-menu-item
+        >
+          Français
+        </button>
+      </mat-menu>
 
-<ul>
-  <li><a routerLink="login">Login</a></li>
-  <li><a routerLink="todo">Todo</a></li>
-</ul>
+      <button aria-label="Share button" class="example-icon"
+              mat-icon-button>
+        <mat-icon>share</mat-icon>
+      </button>
+      <button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with menu icon"
+        class="example-icon"
+        mat-icon-button
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button *ngIf="user==null"
+                mat-menu-item
+                routerLink="login"
+        >
+          <mat-icon>login</mat-icon>
+          Login
+        </button>
+        <button *ngIf="user!=null"
+                mat-menu-item
+                routerLink="todo"
+        >
+          <mat-icon>checklist</mat-icon>
+          Todo's
+        </button>
+        <button *ngIf="user==null"
+                mat-menu-item
+                routerLink="create-user"
+        >
+          <mat-icon>person_add</mat-icon>
+          Sign in
+        </button>
+        <button (click)="signout()"
+                *ngIf="user!=null"
+                mat-menu-item
+        >
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

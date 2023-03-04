@@ -1,0 +1,27 @@
+table {
+  .display-task {
+    display: flex;
+    justify-content: space-between;
+
+    .actionButtons {
+      button {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .mat-mdc-form-field {
+    width: 100%;
+
+    .input-button {
+      display: flex;
+    }
+  }
+
+}
+
+#addButton {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
