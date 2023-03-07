@@ -8,8 +8,7 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
-//
-Cypress.Commands.add('realLogin', (email, password) => {
+Cypress.Commands.add('realLogin', () => {
     cy.visit('http://localhost:4200/login')
     cy.get('[formControlName=email]').clear().type('test@test.com')
     cy.get('[formControlName=password]').clear().type('Mypassword007?')
