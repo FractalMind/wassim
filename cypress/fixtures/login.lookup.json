@@ -1,0 +1,29 @@
+{
+  "email": "cypress@test.com",
+  "password": "Mypassword007?",
+  "statusCode": 200,
+  "body": {
+    "kind": "identitytoolkit#GetAccountInfoResponse",
+    "users": [
+      {
+        "localId": "Cgey3YSIMcVDz6yOQ9tO8p5AbF52",
+        "email": "cypress@test.com",
+        "passwordHash": "UkVEQUNURUQ=",
+        "emailVerified": false,
+        "passwordUpdatedAt": 1677894054866,
+        "providerUserInfo": [
+          {
+            "providerId": "password",
+            "federatedId": "cypress@test.com",
+            "email": "test@test.com",
+            "rawId": "test@test.com"
+          }
+        ],
+        "validSince": "1677894054",
+        "lastLoginAt": "1678142473587",
+        "createdAt": "1677894054866",
+        "lastRefreshAt": "2023-03-06T22:41:13.587Z"
+      }
+    ]
+  }
+}

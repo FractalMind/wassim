@@ -107,11 +107,61 @@
             "firebaseProject": "wassim-ad0a2",
             "firebaseHostingSite": "wassim-ad0a2"
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "wassim:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "wassim:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "wassim:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "wassim:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "wassim:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "wassim:serve:production"
+            }
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "a9bf7fae-e96c-4aa6-9991-6ef9ce3a37bf"
+    "analytics": "a9bf7fae-e96c-4aa6-9991-6ef9ce3a37bf",
+    "schematicCollections": [
+      "@cypress/schematic",
+      "@cypress/schematic",
+      "@schematics/angular"
+    ]
   }
 }

@@ -1,0 +1,7 @@
+{
+  "email": "test@test.com",
+  "password": "Mypassword007?",
+  "body": {
+    "myKey": "test"
+  }
+}

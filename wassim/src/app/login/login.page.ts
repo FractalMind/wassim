@@ -30,7 +30,7 @@ export class LoginPage {
       await this.authService.signInWithEmailAndPassword(
         this.loginForm.value.email!,
         this.loginForm.value.password!
-      ).then( () => {
+      ).then(() => {
         this.router.navigate(['/todo']);
       }).catch(e => {
         this.loginForm.controls.email.setErrors({[e.code]: true});

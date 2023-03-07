@@ -1,0 +1,17 @@
+{
+  "statusCode": 200,
+  "body": {
+    "fakeIdList1111": {
+      "isChecked": false,
+      "isEditable": false,
+      "isMouseOver": false,
+      "name": "Cypress task creation test 11111"
+    },
+    "fakeIdList2222": {
+      "isChecked": false,
+      "isEditable": false,
+      "isMouseOver": false,
+      "name": "Cypress task creation test 22222"
+    }
+  }
+}

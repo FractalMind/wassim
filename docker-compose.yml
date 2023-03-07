@@ -10,10 +10,13 @@ services:
     ports:
       - "4200:4200"
     container_name: wassim
+    environment:
+      CYPRESS_CACHE_FOLDER: '/var/app/googlemapscraperpro/wassim/.cypress-cache'
     restart: always
     tty: true
     volumes:
       - .:/var/app/googlemapscraperpro:rw
+
 
 
   # --------------------------------------------------------------------------------------------------------------------

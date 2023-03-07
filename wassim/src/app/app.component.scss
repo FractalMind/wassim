@@ -21,3 +21,21 @@ mat-toolbar {
     align-items: center;
   }
 }
+
+footer {
+
+  h3, p, a {
+    color: #cacaca;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 30px;
+      margin-left: 6px;
+      opacity: 0.4;
+    }
+  }
+
+
+}
