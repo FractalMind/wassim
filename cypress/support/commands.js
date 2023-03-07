@@ -17,7 +17,6 @@ Cypress.Commands.add('realLogin', () => {
     cy.url().should('contain', 'todo')
 })
 
-
 Cypress.Commands.add('loginWithFixture', () => {
 
     //Deletes the firebase indexdb and force the logout
