@@ -6,7 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/wassim/.vscode" />
-      <excludeFolder url="file://$MODULE_DIR$/.cypress-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/wassim/.cypress-cache" />
       <excludeFolder url="file://$MODULE_DIR$/portainer" />
     </content>
     <orderEntry type="inheritedJdk" />
