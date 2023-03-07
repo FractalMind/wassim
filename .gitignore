@@ -1,2 +1,4 @@
 /portainer/
 /wassim/.cypress-cache/
+/wassim/.vscode/
+/.cypress-cache/
