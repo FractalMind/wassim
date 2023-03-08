@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {FirebaseClientBase} from "../../../clients/base/firebase.client.base";
+import {FirebaseClient} from "../../../clients/base/firebase-client.service";
 import {CredentialsForCreationDto} from "../../create-user/dtos/credentials-for-creation.dto";
 import {BehaviorSubject} from "rxjs";
 import {User} from "@firebase/auth";
@@ -11,7 +11,7 @@ export class AuthService {
 
   public user$ = new BehaviorSubject<User | null>(null);
 
-  constructor(private firebaseClient: FirebaseClientBase) {
+  constructor(private firebaseClient: FirebaseClient) {
   }
 
   public async registerUserWithEmailAndPassword(email: string, password: string): Promise<void> {

@@ -4,6 +4,8 @@ import {TodoClient} from "../../../clients/todo/todo.client";
 import {Injectable} from "@angular/core";
 import {TodoForUpdateDto} from "../dtos/todo-for-update.dto";
 import {TodoForDeleteDto} from "../dtos/todo-for-delete.dto";
+import {TodoItemBo} from "../bos/todo-item.bo";
+import {TodoItemModel} from "../../../clients/todo/models/todo-item.model";
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +45,7 @@ export class TodoService {
       );
   }
 
-  public getTodoList(returnModelClass: any): Observable<Array<typeof returnModelClass>> {
+  public getTodoList(): Observable<Array<TodoItemBo>> {
     return this.todoListSubject$
       .pipe(
         startWith(null),
@@ -51,12 +53,13 @@ export class TodoService {
           return this.todoClient
             .getTodoList()
             .pipe(
-              map((todoList: Array<typeof returnModelClass>) =>
-                todoList.map(todoItemModel => new returnModelClass(todoItemModel))),
+              map((todoList: Array<TodoItemModel>) =>
+                todoList.map(todoItemModel => new TodoItemBo(todoItemModel))),
             );
         }),
       )
   }
+
 
 }
 

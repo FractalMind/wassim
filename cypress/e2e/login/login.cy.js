@@ -1,15 +1,15 @@
 describe('Testing the login page', () => {
 
     beforeEach('test', () => {
-        cy.visit('http://localhost:4200/login');
+        cy.visit('http://localhost:4200/login')
     })
 
     it('Test validation error for empty fields', () => {
-        cy.get('[formControlName=email]').clear()
-        cy.get('[formControlName=password]').clear()
-        cy.get('[data-test=loginButton]').click()
-        cy.get('#mat-mdc-error-0').contains('An email is required')
-        cy.get('#mat-mdc-error-1').cont5ains('A password is required')
+        cy.get('[formControlName=email]').clear();
+        cy.get('[formControlName=password]').clear();
+        cy.get('[data-test=loginButton]').click();
+        cy.get('#mat-mdc-error-0').contains('An email is required');
+        cy.get('#mat-mdc-error-1').contains('A password is required');
     })
 
     it('Test validation error for email malformed', () => {
@@ -40,7 +40,7 @@ describe('Testing the login page', () => {
 
             cy.intercept('POST', '*', data).as('email-not-found')
             cy.get('[data-test=loginButton]').click()
-            cy.wait('@email-not-found').then((response) => {
+            cy.wait('@email-not-found').then(() => {
                 cy.get('#mat-mdc-error-4').contains('There is no user corresponding to the given email')
             })
         })

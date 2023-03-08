@@ -28,7 +28,13 @@ export class TodoModalComponent {
 
   public createTask() {
     if (this.todoForm.valid) {
-      this.dialogRef.close(new TodoItemBo(this.todoForm.value));
+      this.dialogRef.close(new TodoItemBo({
+        id: "",
+        name: (this.todoForm.value.name || ''),
+        isChecked: false,
+        isEditable: false,
+        isMouseOver: false
+      }));
     }
   }
 }

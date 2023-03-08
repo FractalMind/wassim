@@ -19,7 +19,7 @@ export class TodoPage {
               private _snackBar: MatSnackBar,
               private matDialog: MatDialog,
   ) {
-    this.listTodo();
+    this.setTodoList();
   }
 
   openTodoModal(): void {
@@ -44,9 +44,9 @@ export class TodoPage {
     }
   }
 
-  public listTodo() {
+  public setTodoList() {
     this.todoList$ = this.todoService
-      .getTodoList(TodoItemBo)
+      .getTodoList()
       .pipe(
         tap(() => {
           this._snackBar.open('Todos loaded', undefined, {duration: 2000})

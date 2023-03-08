@@ -12,7 +12,7 @@ import {User} from "@firebase/auth";
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseClientBase {
+export class FirebaseClient {
   public defaultHttpOptions = new HttpHeaders({});
   public app = initializeApp(environment.firebase);
 
@@ -52,7 +52,7 @@ export class FirebaseClientBase {
       map(todoDictionary => {
         //Convert FirebaseDictionary to Array
         return (todoDictionary != null)
-          ? Object.entries(todoDictionary).map(e => Object.assign(e[1], {id: e[0]}))
+          ? Object.entries(todoDictionary).map(e => <returnType>Object.assign(e[1], {id: e[0]}))
           : [];
       })
     )
