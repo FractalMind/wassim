@@ -1,11 +1,12 @@
 import {Observable, of, Subject} from "rxjs";
 import {catchError, map, mergeMap, startWith, tap} from "rxjs/operators";
-import {TodoClient} from "../../../clients/todo/todo.client";
+import {TodoClient} from "../../../core/clients/todo/todo.client";
 import {Injectable} from "@angular/core";
 import {TodoForUpdateDto} from "../dtos/todo-for-update.dto";
 import {TodoForDeleteDto} from "../dtos/todo-for-delete.dto";
 import {TodoItemBo} from "../bos/todo-item.bo";
-import {TodoItemModel} from "../../../clients/todo/models/todo-item.model";
+import {TodoItemModel} from "../../../core/clients/todo/models/todo-item.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class TodoService {
   public todoListSubject$ = new Subject();
 
   constructor(private todoClient: TodoClient,
+              private _snackBar: MatSnackBar,
   ) {
   }
 
@@ -50,12 +52,14 @@ export class TodoService {
       .pipe(
         startWith(null),
         mergeMap(() => {
-          return this.todoClient
-            .getTodoList()
-            .pipe(
-              map((todoList: Array<TodoItemModel>) =>
-                todoList.map(todoItemModel => new TodoItemBo(todoItemModel))),
-            );
+          return this.todoClient.getTodoList()
+        }),
+        map((todoList: Array<TodoItemModel>) => {
+          console.log('todoList', todoList);
+          return todoList.map(todoItemModel => new TodoItemBo(todoItemModel));
+        }),
+        tap(() => {
+          this._snackBar.open('Todos loaded', undefined, {duration: 2000})
         }),
       )
   }

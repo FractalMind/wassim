@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {ifUserIsGuess, ifUserIsSignedIn} from "../guards/firebase-user.guard";
+import {ifUserIsGuess, ifUserIsSignedIn} from "../core/guards/firebase-user.guard";
 
 const routes: Routes = [
   {
@@ -22,7 +22,12 @@ const routes: Routes = [
     path: 'create-user',
     loadChildren: () => import('./create-user/create-user.module').then(m => m.CreateUserModule),
     canActivate: [ifUserIsGuess]
-  }
+  },
+  {
+    path: 'lab',
+    loadChildren: () => import('./lab/lab.module').then(m => m.LabModule),
+    canActivate: [ifUserIsSignedIn]
+  },
 ];
 
 @NgModule({

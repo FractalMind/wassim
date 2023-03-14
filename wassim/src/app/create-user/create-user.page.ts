@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {validateWeekPassword} from "../../validators/password.validator";
+import {validateWeekPassword} from "../../core/validators/password.validator";
 import {AuthService} from "../login/services/auth.service";
 import {Router} from "@angular/router";
 

@@ -48,11 +48,12 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       }
     }),
-    MatGridListModule
+    MatGridListModule,
   ],
   providers: [
     {provide: FIREBASE_OPTIONS, useValue: environment.firebase}
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

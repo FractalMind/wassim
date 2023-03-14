@@ -5,10 +5,11 @@
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/portainer" />
       <excludeFolder url="file://$MODULE_DIR$/wassim/.vscode" />
       <excludeFolder url="file://$MODULE_DIR$/wassim/.cypress-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/portainer" />
     </content>
+    <content url="file://$MODULE_DIR$/wassim/node_modules" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

@@ -1,12 +1,7 @@
-import * as _ from "lodash";
-import {TodoInterface} from "../interfaces/todo.interface";
+export class TodoForCreationDto {
+  public name;
 
-export class TodoForCreationDto implements TodoInterface {
-  public id!: string;
-  public name!: string;
-  public isChecked!: boolean;
-
-  constructor(fields: any) {
-    _.assign(this, fields);
+  constructor(todo: any) {
+    this.name = todo.name;
   }
 }

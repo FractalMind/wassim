@@ -1,4 +1,4 @@
-import {TodoItemModel} from "../../../clients/todo/models/todo-item.model";
+import {TodoItemModel} from "../../../core/clients/todo/models/todo-item.model";
 
 export class TodoItemBo {
   public id!: string;

@@ -18,6 +18,11 @@ table {
     }
   }
 
+  .checked {
+    text-decoration: line-through;
+    text-decoration-color: red;
+    text-decoration-thickness: 2px;
+  }
 }
 
 #addButton {
@@ -25,3 +30,4 @@ table {
   bottom: 50px;
   right: 50px;
 }
+

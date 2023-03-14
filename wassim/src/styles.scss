@@ -56,8 +56,12 @@ body {
   }
 
   @keyframes bigger {
-    from {margin-bottom: 0;}
-    to {margin-bottom: 17px;}
+    from {
+      margin-bottom: 0;
+    }
+    to {
+      margin-bottom: 17px;
+    }
   }
 
   mat-form-field.ng-valid.ng-touched {
@@ -67,8 +71,12 @@ body {
   }
 
   @keyframes smaller {
-    from {margin-bottom: 17px;}
-    to {margin-bottom: 0;}
+    from {
+      margin-bottom: 17px;
+    }
+    to {
+      margin-bottom: 0;
+    }
   }
   ///////////////////////////////////////////////
   // END: mat-error pushing content to display
