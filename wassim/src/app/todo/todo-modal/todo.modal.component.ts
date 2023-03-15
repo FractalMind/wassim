@@ -1,6 +1,6 @@
 import {DIALOG_DATA, DialogRef} from '@angular/cdk/dialog';
 import {Component, Inject} from "@angular/core";
-import {TodoItemBo} from "../bos/todo-item.bo";
+import {TodoTableItemBo} from "../bos/todo-table-item.bo";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 
@@ -18,7 +18,7 @@ export class TodoModalComponent {
   });
 
   constructor(public dialogRef: MatDialogRef<DialogRef>,
-              @Inject(DIALOG_DATA) public data: TodoItemBo,
+              @Inject(DIALOG_DATA) public data: TodoTableItemBo,
   ) {
   }
 
@@ -28,7 +28,7 @@ export class TodoModalComponent {
 
   public createTask() {
     if (this.todoForm.valid) {
-      this.dialogRef.close(new TodoItemBo({
+      this.dialogRef.close(new TodoTableItemBo({
         id: "",
         name: (this.todoForm.value.name || ''),
         isChecked: false,

@@ -1,6 +1,6 @@
 import {TodoItemModel} from "../../../core/clients/todo/models/todo-item.model";
 
-export class TodoItemBo {
+export class TodoTableItemBo {
   public id!: string;
   public name!: string;
   public isChecked = false;

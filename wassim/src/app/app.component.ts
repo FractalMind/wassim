@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
 import {Observable} from "rxjs";
 import {User} from "@firebase/auth";
-import {AuthService} from "./login/services/auth.service";
+import {AuthService} from "../core/services/auth.service";
 import {Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent {
   constructor(private authService: AuthService,
               private router: Router,
               public translationService: TranslateService,
+              private _snackBar: MatSnackBar,
   ) {
     this.authService.refreshUser();
     this.translationService.use(localStorage.getItem('language') || 'en');
@@ -32,4 +34,5 @@ export class AppComponent {
     this.translationService.use(i18n);
     localStorage.setItem('language', i18n);
   }
+
 }

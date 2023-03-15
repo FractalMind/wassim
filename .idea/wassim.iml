@@ -9,7 +9,6 @@
       <excludeFolder url="file://$MODULE_DIR$/wassim/.vscode" />
       <excludeFolder url="file://$MODULE_DIR$/wassim/.cypress-cache" />
     </content>
-    <content url="file://$MODULE_DIR$/wassim/node_modules" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

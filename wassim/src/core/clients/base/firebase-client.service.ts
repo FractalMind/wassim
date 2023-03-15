@@ -21,7 +21,7 @@ export class FirebaseClient {
   ) {
   }
 
-  public post<payloadType>(urlRoute: string, payload: payloadType, parameters = '', options?: {}): Observable<any> {
+  public post<payloadType>(urlRoute: string, payload: payloadType, parameters = '?', options?: {}): Observable<any> {
     return this.httpClient.post(
       environment.firebase.databaseURL + urlRoute + parameters,
       payload,
@@ -29,7 +29,7 @@ export class FirebaseClient {
     );
   }
 
-  public patch<payloadType>(urlRoute: string, payload: payloadType, parameters = '', options?: {}): Observable<any> {
+  public patch<payloadType>(urlRoute: string, payload: payloadType, parameters = '?', options?: {}): Observable<any> {
     return this.httpClient.patch(
       environment.firebase.databaseURL + urlRoute + parameters,
       payload,
@@ -37,7 +37,7 @@ export class FirebaseClient {
     );
   }
 
-  public delete<payloadType>(urlRoute: string, parameters = '', options?: {}): Observable<any> {
+  public delete<payloadType>(urlRoute: string, parameters = '?', options?: {}): Observable<any> {
     return this.httpClient.delete(
       environment.firebase.databaseURL + urlRoute + parameters,
       {...this.defaultHttpOptions, ...options}

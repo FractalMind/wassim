@@ -22,7 +22,7 @@
                         [checked]="todo.isChecked"
                         class="example-margin"
           >
-            <p [class.checked]="todo.isChecked">
+            <p [line-through]="todo.isChecked">
               {{ todo.name }}
             </p>
           </mat-checkbox>
@@ -36,7 +36,6 @@
                        matInput
                        placeholder="Wash dishes"
                 >
-                <!-- (input)="todo.name = $event.target.value"-->
                 <button
                   (click)="editTodo(todo)" aria-label="Save"
                   color="primary"
@@ -67,8 +66,6 @@
             </button>
           </div>
         </div>
-
-
       </td>
     </ng-container>
   </table>
@@ -97,7 +94,6 @@
     id="addButton"
     mat-fab
   >
-    <!--    (click)="createTodo()"-->
     <mat-icon>add</mat-icon>
   </button>
 </mat-dialog-actions>

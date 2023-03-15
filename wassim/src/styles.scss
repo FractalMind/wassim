@@ -67,7 +67,7 @@ body {
   mat-form-field.ng-valid.ng-touched {
     animation: smaller;
     animation-duration: 0.3s;
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 
   @keyframes smaller {
@@ -81,5 +81,23 @@ body {
   ///////////////////////////////////////////////
   // END: mat-error pushing content to display
   ///////////////////////////////////////////////
+
+  .line-through {
+    text-decoration: line-through;
+    text-decoration-color: red;
+    text-decoration-thickness: 2px;
+  }
 }
 
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: #ffffff;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+
+  &.app-notification-error {
+    --mdc-snackbar-container-color: #f23a2f;
+  }
+
+  &.app-notification-success {
+    --mdc-snackbar-container-color: #43a446;
+  }
+}

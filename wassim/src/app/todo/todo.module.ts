@@ -11,9 +11,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {TodoModalComponent} from './todo-modal/todo.modal.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {LineThroughDirective} from './directives/line-through.directive';
 
 @NgModule({
-  declarations: [TodoPage, TodoModalComponent],
+  declarations: [TodoPage, TodoModalComponent, LineThroughDirective],
   imports: [
     CommonModule,
     RouterModule.forChild([{
