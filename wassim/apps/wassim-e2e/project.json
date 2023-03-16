@@ -1,0 +1,44 @@
+{
+  "name": "wassim-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/wassim-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "devServerTarget": "wassim:serve",
+        "watch": true,
+        "headless": false,
+        "cypressConfig": "apps/wassim-e2e/cypress.config.ts"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "wassim:serve:production"
+        }
+      }
+    },
+    "cypress-run": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "devServerTarget": "wassim:serve",
+        "cypressConfig": "apps/wassim-e2e/cypress.config.ts"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "wassim:serve:production"
+        }
+      }
+    },
+    "cypress-open": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "watch": true,
+        "headless": false,
+        "cypressConfig": "apps/wassim-e2e/cypress.config.ts"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["wassim"]
+}

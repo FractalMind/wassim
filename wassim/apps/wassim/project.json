@@ -1,0 +1,107 @@
+{
+  "name": "wassim",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/wassim/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/wassim",
+        "index": "apps/wassim/src/index.html",
+        "main": "apps/wassim/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/wassim/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/wassim/src/favicon.ico", "apps/wassim/src/assets"],
+        "styles": ["apps/wassim/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "wassim:build:production"
+        },
+        "development": {
+          "browserTarget": "wassim:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "wassim:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "apps/wassim/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/wassim/src/favicon.ico", "apps/wassim/src/assets"],
+        "styles": ["apps/wassim/src/styles.scss"],
+        "scripts": []
+      }
+    },
+    "deploy": {
+      "executor": "@angular/fire:deploy",
+      "options": {
+        "prerender": false,
+        "ssr": false,
+        "browserTarget": "wassim:build:production",
+        "firebaseProject": "wassim-ad0a2",
+        "firebaseHostingSite": "wassim-ad0a2"
+      }
+    },
+    "ct": {
+      "executor": "@cypress/schematic:cypress",
+      "options": {
+        "devServerTarget": "wassim:serve",
+        "watch": true,
+        "headless": false,
+        "testingType": "component"
+      },
+      "configurations": {
+        "development": {
+          "devServerTarget": "wassim:serve:development"
+        }
+      }
+    }
+  }
+}

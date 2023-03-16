@@ -1,0 +1,42 @@
+mat-toolbar {
+  background-color: #e7e7e7 !important;
+  margin-bottom: 50px;
+
+  #resetToolbarRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+  }
+
+  img {
+    height: 40px;
+  }
+
+  #buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+footer {
+  margin-top: 100px;
+
+  h3,
+  p,
+  a {
+    color: #cacaca;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 30px;
+      margin-left: 6px;
+      opacity: 0.4;
+    }
+  }
+}
