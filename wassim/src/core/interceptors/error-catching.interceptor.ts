@@ -44,4 +44,5 @@ export class ErrorCatchingInterceptor implements HttpInterceptor {
         })
       )
   }
+
 }
