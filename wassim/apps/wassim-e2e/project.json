@@ -40,5 +40,7 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["wassim"]
+  "implicitDependencies": [
+    "wassim"
+  ]
 }

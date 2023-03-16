@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../core/services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   templateUrl: './login.page.html',
@@ -16,7 +16,8 @@ export class LoginPage {
     password: new FormControl('Mypassword007?', [Validators.required]),
   });
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   async submitLogin() {
     if (this.loginForm.valid) {
@@ -29,7 +30,7 @@ export class LoginPage {
           this.router.navigate(['/todo']);
         })
         .catch((e) => {
-          this.loginForm.controls.email.setErrors({ [e.code]: true });
+          this.loginForm.controls.email.setErrors({[e.code]: true});
         });
     }
   }

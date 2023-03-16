@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   BehaviorSubject,
   combineLatest,
@@ -11,15 +11,10 @@ import {
   Observable,
   of,
 } from 'rxjs';
-import { map, startWith, tap } from 'rxjs/operators';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { FilterItemsPipe } from '../../core/pipes/filter-items.pipe';
-import { ItemInterface } from './models/item.interface';
+import {map, startWith, tap} from 'rxjs/operators';
+import {FormBuilder, FormControl, FormGroup, Validators,} from '@angular/forms';
+import {FilterItemsPipe} from '../../core/pipes/filter-items.pipe';
+import {ItemInterface} from './models/item.interface';
 
 @Component({
   templateUrl: './lab.page.html',
@@ -71,13 +66,13 @@ export class LabPage implements OnInit {
       ),
     ]).pipe(
       map(([itemList, searchTerm]) => {
-        console.log('setFilterItemList', { itemList, searchTerm });
+        console.log('setFilterItemList', {itemList, searchTerm});
         const keyword =
           searchTerm != null
             ? searchTerm
-                .searchTermsToFilterItems!.toString()
-                .toLowerCase()
-                .trim()
+              .searchTermsToFilterItems!.toString()
+              .toLowerCase()
+              .trim()
             : '';
         return itemList?.filter((item: ItemInterface) =>
           item.name.toLowerCase().includes(keyword)

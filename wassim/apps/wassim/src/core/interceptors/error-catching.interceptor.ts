@@ -1,18 +1,13 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest,
-} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest,} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {catchError} from 'rxjs/operators';
 
 @Injectable()
 export class ErrorCatchingInterceptor implements HttpInterceptor {
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private _snackBar: MatSnackBar) {
+  }
 
   intercept(
     request: HttpRequest<unknown>,

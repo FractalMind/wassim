@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { TodoInterface } from '../interfaces/todo.interface';
+import {TodoInterface} from '../interfaces/todo.interface';
 
 export class TodoForUpdateDto implements TodoInterface {
   public id!: string;

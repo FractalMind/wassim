@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from '@firebase/auth';
-import { AuthService } from '../core/services/auth.service';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs';
+import {User} from '@firebase/auth';
+import {AuthService} from '../core/services/auth.service';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',

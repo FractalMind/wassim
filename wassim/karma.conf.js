@@ -1,8 +1,8 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
-const { join } = require('path');
-const { constants } = require('karma');
+const {join} = require('path');
+const {constants} = require('karma');
 
 module.exports = () => {
   return {
@@ -30,7 +30,7 @@ module.exports = () => {
     coverageReporter: {
       dir: join(__dirname, './coverage'),
       subdir: '.',
-      reporters: [{ type: 'html' }, { type: 'text-summary' }],
+      reporters: [{type: 'html'}, {type: 'text-summary'}],
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,

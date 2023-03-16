@@ -1,8 +1,8 @@
-import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Component, Inject } from '@angular/core';
-import { TodoTableItemBo } from '../bos/todo-table-item.bo';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import {DIALOG_DATA, DialogRef} from '@angular/cdk/dialog';
+import {Component, Inject} from '@angular/core';
+import {TodoTableItemBo} from '../bos/todo-table-item.bo';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-todo.modal',
@@ -17,7 +17,8 @@ export class TodoModalComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogRef>,
     @Inject(DIALOG_DATA) public data: TodoTableItemBo
-  ) {}
+  ) {
+  }
 
   public cancelDialog() {
     this.dialogRef.close();

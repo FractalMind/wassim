@@ -1,13 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { CredentialsForCreationDto } from '../../../app/create-user/dtos/credentials-for-creation.dto';
-import { getAuth } from '@angular/fire/auth';
-import { initializeApp } from '@angular/fire/app';
-import { User } from '@firebase/auth';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/compat/auth';
+import {CredentialsForCreationDto} from '../../../app/create-user/dtos/credentials-for-creation.dto';
+import {getAuth} from '@angular/fire/auth';
+import {initializeApp} from '@angular/fire/app';
+import {User} from '@firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,8 @@ export class FirebaseClient {
   public defaultHttpOptions = new HttpHeaders({});
   public app = initializeApp(environment.firebase);
 
-  constructor(private httpClient: HttpClient, private auth: AngularFireAuth) {}
+  constructor(private httpClient: HttpClient, private auth: AngularFireAuth) {
+  }
 
   public post<payloadType>(
     urlRoute: string,
@@ -27,7 +28,7 @@ export class FirebaseClient {
     return this.httpClient.post(
       environment.firebase.databaseURL + urlRoute + parameters,
       payload,
-      { ...this.defaultHttpOptions, ...options }
+      {...this.defaultHttpOptions, ...options}
     );
   }
 
@@ -40,7 +41,7 @@ export class FirebaseClient {
     return this.httpClient.patch(
       environment.firebase.databaseURL + urlRoute + parameters,
       payload,
-      { ...this.defaultHttpOptions, ...options }
+      {...this.defaultHttpOptions, ...options}
     );
   }
 
@@ -51,7 +52,7 @@ export class FirebaseClient {
   ): Observable<any> {
     return this.httpClient.delete(
       environment.firebase.databaseURL + urlRoute + parameters,
-      { ...this.defaultHttpOptions, ...options }
+      {...this.defaultHttpOptions, ...options}
     );
   }
 
@@ -70,8 +71,8 @@ export class FirebaseClient {
           //Convert FirebaseDictionary to Array
           return todoDictionary != null
             ? Object.entries(todoDictionary).map(
-                (e) => <returnType>Object.assign(e[1], { id: e[0] })
-              )
+              (e) => <returnType>Object.assign(e[1], {id: e[0]})
+            )
             : [];
         })
       );

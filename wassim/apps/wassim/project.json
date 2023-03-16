@@ -16,11 +16,18 @@
         "outputPath": "dist/apps/wassim",
         "index": "apps/wassim/src/index.html",
         "main": "apps/wassim/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/wassim/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/wassim/src/favicon.ico", "apps/wassim/src/assets"],
-        "styles": ["apps/wassim/src/styles.scss"],
+        "assets": [
+          "apps/wassim/src/favicon.ico",
+          "apps/wassim/src/assets"
+        ],
+        "styles": [
+          "apps/wassim/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -71,11 +78,19 @@
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "polyfills": ["zone.js", "zone.js/testing"],
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
         "tsConfig": "apps/wassim/tsconfig.spec.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/wassim/src/favicon.ico", "apps/wassim/src/assets"],
-        "styles": ["apps/wassim/src/styles.scss"],
+        "assets": [
+          "apps/wassim/src/favicon.ico",
+          "apps/wassim/src/assets"
+        ],
+        "styles": [
+          "apps/wassim/src/styles.scss"
+        ],
         "scripts": []
       }
     },

@@ -1,6 +1,6 @@
-import { inject } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import {inject} from '@angular/core';
+import {Auth} from '@angular/fire/auth';
+import {Router} from '@angular/router';
 
 export const ifUserIsSignedIn = async () => {
   const firebaseAuth = inject(Auth);

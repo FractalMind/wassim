@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LabPage } from './lab.page';
-import { RouterModule } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FilterItemsPipe } from '../../core/pipes/filter-items.pipe';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {LabPage} from './lab.page';
+import {RouterModule} from '@angular/router';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FilterItemsPipe} from '../../core/pipes/filter-items.pipe';
 
 @NgModule({
   declarations: [LabPage, FilterItemsPipe],
@@ -26,4 +26,5 @@ import { FilterItemsPipe } from '../../core/pipes/filter-items.pipe';
   ],
   providers: [FilterItemsPipe],
 })
-export class LabModule {}
+export class LabModule {
+}

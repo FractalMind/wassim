@@ -1,7 +1,7 @@
 <mat-toolbar>
   <h3>Create a new task</h3>
   <button (click)="cancelDialog()">
-    <mat-icon> close </mat-icon>
+    <mat-icon> close</mat-icon>
   </button>
 </mat-toolbar>
 
@@ -9,7 +9,7 @@
   <form [formGroup]="todoForm">
     <mat-form-field>
       <mat-label>Task</mat-label>
-      <input formControlName="name" matInput />
+      <input formControlName="name" matInput/>
       <mat-error *ngIf="todoForm.get('name')?.getError('required')">
         A task title is required
       </mat-error>

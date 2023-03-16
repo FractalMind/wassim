@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import {FormControl} from '@angular/forms';
 
 export function validateWeekPassword(control: FormControl) {
   if (
@@ -7,7 +7,7 @@ export function validateWeekPassword(control: FormControl) {
       '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
     )
   ) {
-    return { weekPassword: true };
+    return {weekPassword: true};
   }
   return null;
 }

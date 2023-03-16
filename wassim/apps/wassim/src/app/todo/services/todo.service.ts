@@ -1,12 +1,12 @@
-import { Observable, Subject } from 'rxjs';
-import { map, mergeMap, startWith, tap } from 'rxjs/operators';
-import { TodoClient } from '../../../core/clients/todo/todo.client';
-import { Injectable } from '@angular/core';
-import { TodoForUpdateDto } from '../dtos/todo-for-update.dto';
-import { TodoForDeleteDto } from '../dtos/todo-for-delete.dto';
-import { TodoTableItemBo } from '../bos/todo-table-item.bo';
-import { TodoItemModel } from '../../../core/clients/todo/models/todo-item.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {Observable, Subject} from 'rxjs';
+import {map, mergeMap, startWith, tap} from 'rxjs/operators';
+import {TodoClient} from '../../../core/clients/todo/todo.client';
+import {Injectable} from '@angular/core';
+import {TodoForUpdateDto} from '../dtos/todo-for-update.dto';
+import {TodoForDeleteDto} from '../dtos/todo-for-delete.dto';
+import {TodoTableItemBo} from '../bos/todo-table-item.bo';
+import {TodoItemModel} from '../../../core/clients/todo/models/todo-item.model';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class TodoService {
   public todoListSubject$ = new Subject();
 
-  constructor(private todoClient: TodoClient, private _snackBar: MatSnackBar) {}
+  constructor(private todoClient: TodoClient, private _snackBar: MatSnackBar) {
+  }
 
   public createTodo(todo: any): Observable<any> {
     return this.todoClient
@@ -46,7 +47,7 @@ export class TodoService {
         );
       }),
       tap(() => {
-        this._snackBar.open('Todos loaded', undefined, { duration: 2000 });
+        this._snackBar.open('Todos loaded', undefined, {duration: 2000});
       })
     );
   }

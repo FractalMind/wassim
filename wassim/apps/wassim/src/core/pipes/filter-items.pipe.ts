@@ -1,5 +1,5 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { Observable } from 'rxjs';
+import {Pipe, PipeTransform} from '@angular/core';
+import {Observable} from 'rxjs';
 
 @Pipe({
   name: 'filterItems',

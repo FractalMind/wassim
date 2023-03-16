@@ -1,16 +1,17 @@
-import { FirebaseClient } from '../base/firebase-client.service';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { TodoItemModel } from './models/todo-item.model';
-import { TodoForUpdateDto } from '../../../app/todo/dtos/todo-for-update.dto';
-import { TodoForDeleteDto } from '../../../app/todo/dtos/todo-for-delete.dto';
-import { TodoForCreationDto } from '../../../app/todo/dtos/todo-for-creation.dto';
+import {FirebaseClient} from '../base/firebase-client.service';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {TodoItemModel} from './models/todo-item.model';
+import {TodoForUpdateDto} from '../../../app/todo/dtos/todo-for-update.dto';
+import {TodoForDeleteDto} from '../../../app/todo/dtos/todo-for-delete.dto';
+import {TodoForCreationDto} from '../../../app/todo/dtos/todo-for-creation.dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoClient {
-  constructor(private firebaseClient: FirebaseClient) {}
+  constructor(private firebaseClient: FirebaseClient) {
+  }
 
   public createTodo(todoForCreationDto: TodoForCreationDto): Observable<any> {
     return this.firebaseClient.post('/todos.json', todoForCreationDto);

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { validateWeekPassword } from '../../core/validators/password.validator';
-import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {validateWeekPassword} from '../../core/validators/password.validator';
+import {AuthService} from '../../core/services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -17,7 +17,8 @@ export class CreateUserPage {
     password: new FormControl('', [Validators.required, validateWeekPassword]),
   });
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   register() {
     if (this.createUserForm.valid) {
@@ -30,7 +31,7 @@ export class CreateUserPage {
           this.router.navigate(['/todo']);
         })
         .catch((e) => {
-          this.createUserForm.controls.email.setErrors({ [e.code]: true });
+          this.createUserForm.controls.email.setErrors({[e.code]: true});
         });
     }
   }
