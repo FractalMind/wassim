@@ -18,8 +18,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {ErrorCatchingInterceptor} from '../core/interceptors/error-catching.interceptor';
-import {FirebaseInterceptor} from '../core/interceptors/firebase.interceptor';
+import {ErrorCatchingInterceptor} from '../../../../libs/core/interceptors/error-catching.interceptor';
+import {FirebaseInterceptor} from '../../../../libs/core/interceptors/firebase.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

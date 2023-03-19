@@ -28,7 +28,7 @@ services:
     container_name: portainer-googlemapscraperpro
     restart: always
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ${DOCKER_SOCK_PATH}:/var/run/docker.sock:rw
       - ./portainer:/data:rw
     ports:
       - "8888:9000"

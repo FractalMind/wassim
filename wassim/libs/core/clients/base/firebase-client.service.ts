@@ -1,10 +1,10 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../apps/wassim/src/environments/environment';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
-import {CredentialsForCreationDto} from '../../../app/create-user/dtos/credentials-for-creation.dto';
+import {CredentialsForCreationDto} from '../../../pages/create-user/dtos/credentials-for-creation.dto';
 import {getAuth} from '@angular/fire/auth';
 import {initializeApp} from '@angular/fire/app';
 import {User} from '@firebase/auth';

@@ -2,3 +2,4 @@
 /wassim/.cypress-cache/
 /wassim/.vscode/
 /.cypress-cache/
+.env

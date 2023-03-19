@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {ifUserIsGuess, ifUserIsSignedIn,} from '../core/guards/firebase-user.guard';
+import {ifUserIsGuess, ifUserIsSignedIn,} from '../../../../libs/core/guards/firebase-user.guard';
 
 const routes: Routes = [
   {
@@ -11,25 +11,25 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./login/login.module').then((m) => m.LoginModule),
+      import('../../../../libs/pages/login/login.module').then((m) => m.LoginModule),
     canActivate: [ifUserIsGuess],
   },
   {
     path: 'todo',
-    loadChildren: () => import('./todo/todo.module').then((m) => m.TodoModule),
+    loadChildren: () => import('../../../../libs/pages/todo/todo.module').then((m) => m.TodoModule),
     canActivate: [ifUserIsSignedIn],
   },
   {
     path: 'create-user',
     loadChildren: () =>
-      import('./create-user/create-user.module').then(
+      import('../../../../libs/pages/create-user/create-user.module').then(
         (m) => m.CreateUserModule
       ),
     canActivate: [ifUserIsGuess],
   },
   {
     path: 'lab',
-    loadChildren: () => import('./lab/lab.module').then((m) => m.LabModule),
+    loadChildren: () => import('../../../../libs/pages/lab/lab.module').then((m) => m.LabModule),
     canActivate: [ifUserIsSignedIn],
   },
 ];
